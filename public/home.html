@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Friend Finder</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        html {
+            background: url("social.png");
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container'>
+        <h1>Friend Finder</h1>
+        <a href='file:///Users/davidyuen/Desktop/Assignments/friendFinder/public/survey.html'>Start Survey and Find a
+            Match!</a>
+            <ul></ul>
+    </div>
+    <div class ='container'>
+        <ul></ul>
+    </div>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+        displayFriends();
+
+        function displayFriends(){
+            $.ajax({
+                url:'/api/friends',
+                method: 'GET'
+            }).then(function(res){
+                for (var i =0; i<res.length;i++){
+                    var li = $('<li>');
+                    li.text(res[i].friend_name)
+                        console.log(res[i].friend_name);
+                    $('ul').append(li);
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
