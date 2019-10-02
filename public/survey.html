@@ -28,13 +28,11 @@
         <hr>
         <h3>About You</h3>
         <h4>Name (Required)</h4>
-        <form action ='/insert-form' method = 'GET'>
-        <input type='text' id = 'name' class = 'form-control' required>
+        <form id ='insertForm' action ='/insert' method = 'GET'>
+        <input type='text' name='friend_name' class = 'form-control' placeholder ='First Name and Last Name' required>
         <h4>Link to Photo Image (Required)</h4>
-        <input type='text' id = 'photo' class = 'form-control' required>
+        <input type='text' name ='picture_link' class = 'form-control' placeholder =' add a photo' required>
         
-        </form>
-
         <ul></ul>
         
         <hr>
@@ -147,18 +145,29 @@
         <option value='3'>3</option>
         <option value='4'>4</option>
         <option value='5'>5 (Strongly Agree)</option>
-        </select> 
+        </select>
 
-        <button type ='submit' class = 'btn btn-primary btn-lg btn-block' id='submit'>
-            Submit
-        </button>
-    </form>
+        
+    
+
+        <button type ='submit' class = 'btn btn-primary btn-lg btn-block' id='submit'>Submit</button>
+        </form>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    $(document).ready(function(){
-        $('.chosen').chosen();
-    });
+
+    // $.ajax({
+    //     url:'api/friends',
+    //     method:'GET'
+    // }).then(function(res){
+    //     for (var i =0 ; i <res.length; i ++){
+    //         var li = $('<li>');
+    //         li.text(res[i]['friend_name']);
+    //         $('ul').append(li);
+    //     }
+    // })
+
+
 </script>
 </body>
 </html>

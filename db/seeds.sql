@@ -1,7 +1,7 @@
 INSERT INTO friend (friend_name, picture_link) VALUES 
-('David Yuen', 'https://www.instagram.com/dave.yuen/'),
-('Sophia Feng', 'https://www.instagram.com/sophiafengx3/'),
-('Simon Yeung', 'https://www.instagram.com/yeung_simon/');
+('David Yuen', 'images/dave.png'),
+('Sophia Feng', 'images/sophia.png'),
+('Simon Yeung', 'images/simon.png');
 
 INSERT INTO question (ques) VALUES
 ('For vacations you would like to travel to different countries and experience a different culture.'),
@@ -19,3 +19,5 @@ INSERT INTO scores (questions_id, friends_id, answer) VALUES
 (1,1,5),(2,1,5),(3,1,4),(4,1,5),(5,1,2),(6,1,3),(7,1,2),(8,1,3),(9,1,5),(10,1,5),
 (1,2,5),(2,2,1),(3,2,2),(4,2,5),(5,2,1),(6,2,2),(7,2,4),(8,2,1),(9,2,1),(10,2,1),
 (1,3,5),(2,3,3),(3,3,5),(4,3,3),(5,3,5),(6,3,5),(7,3,1),(8,3,5),(9,3,1),(10,3,1);
+
+

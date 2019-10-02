@@ -21,20 +21,25 @@
             text-align: center;
             margin-top: 100px;
         }
+
+        ul li {
+            display:inline-block;
+            width:100px;
+            height:500px;
+        }
+
     </style>
 </head>
 
 <body>
     <div class='container'>
         <h1>Friend Finder</h1>
-        <a href='file:///Users/davidyuen/Desktop/Assignments/friendFinder/public/survey.html'>Start Survey and Find a
-            Match!</a>
-            <ul></ul>
+        <a href='survey.html'>Start Survey and Find a Match!</a>
     </div>
     <div class ='container'>
         <ul></ul>
     </div>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
         displayFriends();
@@ -47,11 +52,16 @@
                 for (var i =0; i<res.length;i++){
                     var li = $('<li>');
                     li.text(res[i].friend_name)
-                        console.log(res[i].friend_name);
+                        // console.log(res[i].friend_name);
+                    var pi = $('<li>')
+                    pi.text(res[i].picture_link)
                     $('ul').append(li);
+                    // $('ul').append(pi);
+                    $('ul').append('<img src = ' + pi[0].firstChild.data + ' width= 200 >');
                 }
             })
         }
+
     </script>
 </body>
 
