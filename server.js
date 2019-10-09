@@ -4,10 +4,9 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.text());
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
@@ -30,33 +29,23 @@ app.get('/api/friends', function (req, res) {
     });
 });
 
-app.get('/insert', function (req, res){
-//     res.json(req.query);
-// });
-    if (req.query.friend_name.length > 1){
-        connection.query('INSERT INTO friend (friend_name) VALUES (?)', 
-        [req.query.friend_name], function (error,results,fields){
-            if (error) res.send(error)
-            else res.redirect('/');
-        });
-    }else{
-        res.send('invalid name')
-    }
-})
+app.post('/insert-form', function(req, res){
+  res.json(req.body);
+    connection.query('INSERT INTO friend (friend_name, picture_link) VALUES (?,?)',
+    [req.body.friend_name,req.body.picture_link], function(error, res, fields){
+        if (error) res.send(error)
+        for (var i =1; i<11; i++){ 
+            connection.query('INSERT INTO scores(friends_id, questions_id,answer) VALUES (?,?,?)',
+            [res.insertId, [i], req.body['q'+i]], function(error,res,fields){
 
-app.get('/insert',function (req,res){
-//     res.json(req.query);
-// })
-    if(req.query.picture_link.length > 1){
-        connection.query('INSERT INTO friend (picture_link) VALUES (?)',
-        [req.query.picture_link], function (error, results, fields){
-            if (error) res.send(error)
-            else res.redirect('/');
-        });
-    }else{
-        res.send('invalid photo')
-    }
-})
+                if(error) console.log(error);
+            })
+        }
+
+    })
+
+});
+
 
 
 

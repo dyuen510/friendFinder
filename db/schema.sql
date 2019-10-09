@@ -30,3 +30,10 @@ CREATE TABLE scores (
     CHECK (answer >= 0),
     CHECK (answer <= 5)
 );
+
+function displayNum(n){
+    for(var i =0; i<n; i++){
+        console.log(i);
+    }
+}
+displayNum(100)
