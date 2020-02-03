@@ -28,6 +28,12 @@
             height:500px;
         }
 
+        img{
+            padding:10px;
+            border:2px solid black;
+            margin:15px;
+        }
+
     </style>
 </head>
 
@@ -51,11 +57,11 @@
             }).then(function(res){
                 for (var i =0; i<res.length;i++){
                     var li = $('<li>');
-                    li.text(res[i].friend_name)
+                    // li.text(res[i].friend_name)
                         // console.log(res[i].friend_name);
                     var pi = $('<li>')
                     pi.text(res[i].picture_link)
-                    $('ul').append(li);
+                    // $('ul').append(li);
                     // $('ul').append(pi);
                     $('ul').append('<img src = ' + pi[0].firstChild.data + ' width= 200 >');
                 }

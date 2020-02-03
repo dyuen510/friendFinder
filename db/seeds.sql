@@ -21,3 +21,24 @@ INSERT INTO scores (questions_id, friends_id, answer) VALUES
 (1,3,5),(2,3,3),(3,3,5),(4,3,3),(5,3,5),(6,3,5),(7,3,1),(8,3,5),(9,3,1),(10,3,1);
 
 
+-- SELECT SUM(answer_difference) AS difference, friend_name, picture_link
+-- FROM
+-- (SELECT *, ABS(answer-t2answer AS answer_difference FROM 
+-- (SELECT *
+-- FROM scores s1
+-- LEFT JOIN (SELECT questions_id AS t2questions_id, friends_id AS t2friends_id, answer AS t2answer
+-- FROM scores s2) t2
+-- ON t2questions_id = s1.questions_id) t3) t4
+-- LEFT JOIN friend 
+-- ON t4.friends_id = friend.friends_id
+-- WHERE t2friends_id != 10
+-- GROUP BY friend_name, picture_link
+-- ORDER BY difference;
+
+-- SELECT questions_id, friends_id, t2friends_id, answer_difference FROM 
+-- (SELECT *, (answer-t2answer) AS answer_difference FROM
+-- (SELECT *
+-- FROM scores s1
+-- LEFT JOIN (SELECT questions_id AS t2questions_id, friends_id AS t2friends_id, answer AS t2answer
+-- FROM scores s2) t2
+-- ON t2questions_id = s1.questions_id) t3) t4;

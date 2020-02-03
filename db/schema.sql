@@ -23,7 +23,7 @@ CREATE TABLE scores (
     id INT NOT NULL AUTO_INCREMENT,
     questions_id INT NOT NULL,
     friends_id INT NOT NULL,
-    answer INT NOT NULL,
+    answer INT,
     FOREIGN KEY (questions_id) REFERENCES question(id),
     FOREIGN KEY (friends_id) REFERENCES friend(id),
     PRIMARY KEY(id),
@@ -31,9 +31,3 @@ CREATE TABLE scores (
     CHECK (answer <= 5)
 );
 
-function displayNum(n){
-    for(var i =0; i<n; i++){
-        console.log(i);
-    }
-}
-displayNum(100)
