@@ -21,4 +21,7 @@ Using MySQL to query and get the total score from each user and display them as 
 This app was created with express, path, body-parser, mysql for the database, HTTP methods, html, css, node.js, javascript and jquery. 
 
 
+*************************
+Currently working on this app to make it more appealing. No deployed link at them moment. 
+
 
